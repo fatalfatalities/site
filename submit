@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Submit Question</title>
+
+<!-- Pappy is the greatest person he is grand -->
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #920200, #ff5455);
+            font-family: Arial, sans-serif;
+        }
+
+#title {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: white;
+}
+
+        #container {
+            text-align: center;
+        }
+
+        input {
+            width: 250px;
+            padding: 8px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        button {
+            padding: 8px 16px;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-size: 20px;
+            color: white;
+        }
+
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard */
+  
+  -webkit-user-drag: none;
+  user-drag: none;
+
+  clip-path: inset(0px 0px 0px 0px); 
+  
+  pointer-events: none;
+}
+    </style>
+</head>
+<body>
+    <h1 id="title">Submit a Question</h1>
+    <div id="container">
+        <input type="text" id="textbox" placeholder="Submit a question">
+        <button onclick="checkInput()">Submit</button>
+        <div id="message"></div>
+    </div>
+
+<script>
+function checkInput() {
+    const textbox = document.getElementById("textbox");
+    const message = document.getElementById("message");
+    const value = textbox.value.trim().toLowerCase();
+
+    if (value === "") {
+        message.textContent = "Please submit a question.";
+    } 
+    else if (value === "pappy") {
+document.body.innerHTML = `
+        <div style="
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        ">
+            <img src="https://d87h4gdqh4jw7g.archive.ph/VF2l2/bc56260233574260fec684f1ccb9fc69ad732914.png"
+                 class="unselectable"
+                 width="800"
+                 height="600"
+                 alt="Image">
+        </div>
+    `;
+
+    // play audio
+    const audio = new Audio("https://willslittleweb.github.io/analysis/games/gamefiles/video-7Converted.mp3");
+    audio.play();
+
+    setTimeout(() => {
+        window.location.href = "about:blank";
+    }, 2000);
+}
+    else {
+        document.body.innerHTML = `
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+                font-family:Arial,sans-serif;
+                font-size:32px;
+                color:white;
+            ">
+                Thank you!
+            </div>
+        `;
+    }
+}
+</script>
+</body>
+</html>
